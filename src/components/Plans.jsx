@@ -4,20 +4,20 @@ import SectionHead from './SectionHead.jsx'
 
 const plans = [
   { name: 'Starter', tag: 'Empresas pequeñas iniciando con ERP',
-    m: 240, a: 199,
+    m: 240, a: 199, interest: 'Cotización – Plan Starter',
     pts: ['Hasta 5 usuarios concurrentes', 'Facturación electrónica', 'Inventarios y contabilidad básica', 'Soporte estándar (8x5)', 'Implementación remota guiada'],
     cta: 'Cotizar Starter', featured: false },
   { name: 'Business', tag: 'Empresas medianas en consolidación',
-    m: 580, a: 489,
+    m: 580, a: 489, interest: 'Cotización – Plan Business',
     pts: ['Hasta 20 usuarios concurrentes', 'Todos los módulos núcleo', 'Reportes BI y dashboards', 'Soporte prioritario (12x6)', 'Implementación consultiva on-site', 'Personalizaciones incluidas'],
     cta: 'Cotizar Business', featured: true },
   { name: 'Enterprise', tag: 'Operaciones críticas y multi-sucursal',
-    m: null, a: null,
+    m: null, a: null, interest: 'Propuesta Enterprise',
     pts: ['Usuarios concurrentes ilimitados', 'Todos los módulos + integraciones', 'Multi-empresa y multi-bodega', 'Soporte 24/7 dedicado', 'Consultor de cuenta asignado', 'SLA enterprise'],
     cta: 'Solicitar propuesta', featured: false },
 ]
 
-const Plans = () => {
+const Plans = ({ openModal }) => {
   const [annual, setAnnual] = useState(true)
   return (
     <section id="planes" className="plans section">
@@ -56,7 +56,7 @@ const Plans = () => {
               <ul className="plan__pts">
                 {p.pts.map((t, j) => (<li key={j}><Icon name="check" size={14} />{t}</li>))}
               </ul>
-              <a href={`mailto:contacto@ciadeconsulting.ec?subject=Cotización FENIX ERP - Plan ${p.name}`} className={`btn ${p.featured ? 'btn--primary' : 'btn--outline'} btn--block`}>{p.cta}</a>
+              <button className={`btn ${p.featured ? 'btn--primary' : 'btn--outline'} btn--block`} onClick={() => openModal(p.interest)}>{p.cta}</button>
             </div>
           ))}
         </div>

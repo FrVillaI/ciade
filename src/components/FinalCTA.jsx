@@ -1,6 +1,6 @@
 import Icon from './Icon.jsx'
 
-const FinalCTA = () => (
+const FinalCTA = ({ openModal }) => (
   <section className="cta section">
     <div className="container">
       <div className="cta__box">
@@ -9,8 +9,8 @@ const FinalCTA = () => (
           <h2 className="cta__h">Comencemos por entender su operación.</h2>
           <p className="cta__s">Una sesión de diagnóstico de 45 minutos sin costo, con un consultor especializado. Salga con un mapa claro del alcance, plazos y modalidad recomendada.</p>
           <div className="cta__ctas">
-            <a href="mailto:contacto@ciadeconsulting.ec?subject=Solicitud de demo FENIX ERP" className="btn btn--primary btn--lg">Agendar demo <Icon name="arrow" size={16} /></a>
-            <a href="mailto:contacto@ciadeconsulting.ec?subject=Solicitud de cotización FENIX ERP" className="btn btn--outline-light btn--lg">Solicitar cotización</a>
+            <button className="btn btn--primary btn--lg" onClick={() => openModal()}>Agendar demo <Icon name="arrow" size={16} /></button>
+            <button className="btn btn--outline-light btn--lg" onClick={() => openModal('Consulta general')}>Solicitar cotización</button>
           </div>
         </div>
         <div className="cta__side">

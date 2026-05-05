@@ -33,9 +33,8 @@ const megaDescs = {
 }
 
 const WA_URL = 'https://wa.me/593988015407?text=Hola%2C%20estoy%20interesado%20en%20las%20soluciones%20FENIX%20ERP%20de%20CIADE%20Consulting.%20%C2%BFMe%20pueden%20asesorar%3F'
-const DEMO_URL = 'mailto:contacto@ciadeconsulting.ec?subject=Solicitud de demo FENIX ERP'
 
-const Header = () => {
+const Header = ({ openModal }) => {
   const [scrolled, setScrolled] = useState(false)
   const [megaOpen, setMegaOpen] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -85,9 +84,9 @@ const Header = () => {
           <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="btn btn--ghost">
             <Icon name="phone" size={14} /> Hablar con un asesor
           </a>
-          <a href={DEMO_URL} className="btn btn--primary">
+          <button className="btn btn--primary" onClick={() => openModal()}>
             Agendar demo <Icon name="arrow" size={14} />
-          </a>
+          </button>
         </div>
 
         <button
@@ -176,9 +175,9 @@ const Header = () => {
           <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="btn btn--ghost btn--block">
             <Icon name="phone" size={14} /> Hablar con un asesor
           </a>
-          <a href={DEMO_URL} className="btn btn--primary btn--block">
+          <button className="btn btn--primary btn--block" onClick={() => { openModal(); closeMenu(); }}>
             Agendar demo <Icon name="arrow" size={14} />
-          </a>
+          </button>
         </div>
       </div>
     </header>
