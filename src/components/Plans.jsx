@@ -56,7 +56,7 @@ const Plans = () => {
               <ul className="plan__pts">
                 {p.pts.map((t, j) => (<li key={j}><Icon name="check" size={14} />{t}</li>))}
               </ul>
-              <button className={`btn ${p.featured ? 'btn--primary' : 'btn--outline'} btn--block`}>{p.cta}</button>
+              <a href={`mailto:contacto@ciadeconsulting.ec?subject=Cotización FENIX ERP - Plan ${p.name}`} className={`btn ${p.featured ? 'btn--primary' : 'btn--outline'} btn--block`}>{p.cta}</a>
             </div>
           ))}
         </div>
