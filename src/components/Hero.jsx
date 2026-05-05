@@ -2,7 +2,7 @@ import Icon from './Icon.jsx'
 import DashboardMock from './DashboardMock.jsx'
 
 const Hero = () => (
-  <section className="hero">
+  <section id="inicio" className="hero">
     <div className="container hero__inner">
       <div className="hero__copy">
         <div className="eyebrow">

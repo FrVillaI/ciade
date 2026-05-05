@@ -19,7 +19,7 @@ const Industries = () => {
   const [active, setActive] = useState(0)
   const a = inds[active]
   return (
-    <section className="ind section section--alt">
+    <section id="industrias" className="ind section section--alt">
       <div className="container">
         <SectionHead
           eyebrow="Industrias"

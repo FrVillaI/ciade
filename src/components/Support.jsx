@@ -13,7 +13,7 @@ const faqs = [
 const Support = () => {
   const [open, setOpen] = useState(0)
   return (
-    <section className="sup section">
+    <section id="soporte" className="sup section">
       <div className="container">
         <SectionHead
           eyebrow="Soporte"

@@ -32,7 +32,7 @@ const sols = [
 const Solutions = () => {
   const [active, setActive] = useState(1)
   return (
-    <section className="sol section section--alt">
+    <section id="soluciones" className="sol section section--alt">
       <div className="container">
         <SectionHead
           eyebrow="Soluciones"

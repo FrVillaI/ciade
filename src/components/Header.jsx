@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <header className={`hdr ${scrolled ? 'hdr--scrolled' : ''}`} onMouseLeave={() => setMegaOpen(null)}>
       <div className="hdr__bar">
-        <a href="#" className="hdr__brand">
+        <a href="#inicio" className="hdr__brand">
           <img src="/ciade-logo.png" alt="CIADE" className="hdr__logo" />
           <div className="hdr__brandtxt">
             <span className="hdr__name">CIADE</span>
@@ -58,10 +58,14 @@ const Header = () => {
         <nav className="hdr__nav">
           {nav.map(n => (
             <div key={n.id} className="hdr__navitem" onMouseEnter={() => n.items && setMegaOpen(n.id)}>
-              <button className={`hdr__navbtn ${megaOpen === n.id ? 'is-open' : ''}`}>
-                {n.label}
-                {n.items && <Icon name="chevron" size={14} />}
-              </button>
+              {n.items ? (
+                <button className={`hdr__navbtn ${megaOpen === n.id ? 'is-open' : ''}`}>
+                  {n.label}
+                  <Icon name="chevron" size={14} />
+                </button>
+              ) : (
+                <a href={`#${n.id}`} className="hdr__navbtn">{n.label}</a>
+              )}
             </div>
           ))}
         </nav>

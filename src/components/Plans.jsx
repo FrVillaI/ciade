@@ -20,7 +20,7 @@ const plans = [
 const Plans = () => {
   const [annual, setAnnual] = useState(true)
   return (
-    <section className="plans section">
+    <section id="planes" className="plans section">
       <div className="container">
         <SectionHead
           eyebrow="Planes y modalidades"
