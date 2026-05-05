@@ -159,17 +159,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Drawer */
 .hdr__drawer {
+  display: none;
   position: fixed; top: 0; right: 0; z-index: 50;
   width: min(320px, 88vw); height: 100dvh;
   background: var(--bg);
-  display: flex; flex-direction: column;
+  flex-direction: column;
   box-shadow: var(--shadow-lg);
   transform: translateX(100%);
-  transition: transform .25s ease, visibility .25s;
-  visibility: hidden;
+  transition: transform .25s ease;
   overflow: hidden;
 }
-.hdr__drawer.is-open { transform: translateX(0); visibility: visible; }
+.hdr__drawer.is-open { transform: translateX(0); }
 .hdr__drawer-head {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 16px; border-bottom: 1px solid var(--line); flex-shrink: 0;
@@ -636,6 +636,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hdr__nav { display: none; }
   .hdr__cta { display: none; }
   .hdr__ham { display: flex; }
+  .hdr__drawer { display: flex; }
   .hero__inner, .trust__inner, .ps__grid, .sol__grid, .mods__grid, .diff__grid, .ind__layout, .plans__grid, .sup__grid, .cta__box, .ft__inner, .ft__cols { grid-template-columns: 1fr; }
   .trust__grid { grid-template-columns: repeat(2, 1fr); }
   .cli__wall { grid-template-columns: repeat(2, 1fr); }
