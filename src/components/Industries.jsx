@@ -3,16 +3,16 @@ import Icon from './Icon.jsx'
 import SectionHead from './SectionHead.jsx'
 
 const inds = [
-  { i: 'factory', t: 'Empresas medianas', d: 'Operaciones multi-área que necesitan integrar facturación, inventario, contabilidad y gestión bajo un mismo sistema.',
-    points: ['Centralización multi-departamental', 'Trazabilidad de orden a cobro', 'Reportería ejecutiva consolidada', 'Control de costos operativos'] },
-  { i: 'calculator', t: 'Contadores y firmas contables', d: 'Profesionales que administran múltiples empresas y necesitan centralizar clientes, automatizar procesos y escalar la operación.',
-    points: ['Multi-empresa desde un único panel', 'Procesos contables automatizados', 'Cierres mensuales asistidos', 'Cumplimiento tributario al día'] },
-  { i: 'stethoscope', t: 'Clínicas y salud', d: 'Centros que requieren control administrativo, financiero y de inventario de insumos médicos con cumplimiento sectorial.',
-    points: ['Control de insumos críticos', 'Facturación de servicios', 'Convenios y aseguradoras', 'Reportes regulatorios'] },
-  { i: 'cart', t: 'Retail y comercio', d: 'Cadenas y comercios con punto de venta, múltiples sucursales y necesidad de sincronización en tiempo real.',
-    points: ['POS multi-sucursal', 'Inventario en línea', 'Promociones y precios', 'Cierre de caja diario'] },
-  { i: 'truck', t: 'Importadoras y distribución', d: 'Empresas con costeo de importación, logística distribuida y control multi-bodega en operación crítica.',
-    points: ['Costeo de importación', 'Multi-moneda y tipo de cambio', 'Bodegas distribuidas', 'Control de despachos'] },
+  { i: 'activity', t: 'Gasolineras', d: 'Control integral de despacho de combustible, turnos de piso, inventario de lubricantes y cierre de caja integrado con facturación electrónica SRI.',
+    points: ['Control de surtidores por turno', 'Cuadre de caja por isleño', 'Inventario de lubricantes y tienda', 'Facturación electrónica SRI'] },
+  { i: 'layers', t: 'Florícolas', d: 'Gestión de producción por variedad y lote, control de costos de corte, exportación y nómina agrícola con cumplimiento IESS rural.',
+    points: ['Producción y control de lotes', 'Costeo de exportación completo', 'Nómina agrícola e IESS rural', 'Trazabilidad por variedad y finca'] },
+  { i: 'truck', t: 'Guías de Transporte', d: 'Emisión de guías de remisión autorizadas SRI, control de flota y liquidación de viajes con integración directa al módulo contable.',
+    points: ['Emisión de guías SRI en línea', 'Control de rutas y flota', 'Liquidación automática de viajes', 'Integración con facturación y cobros'] },
+  { i: 'box', t: 'Logística', d: 'Operaciones de bodega, recepción, despacho y distribución con trazabilidad completa por lote o serie en tiempo real.',
+    points: ['Multi-bodega y multi-sucursal', 'Recepción y despacho asistidos', 'Trazabilidad por lote o serie', 'Reportería operativa en tiempo real'] },
+  { i: 'globe', t: 'Importaciones', d: 'Costeo de importación completo, manejo de pólizas, operaciones en multi-moneda y seguimiento de pedidos al exterior.',
+    points: ['Costeo de importación por ítem', 'Multi-moneda y tipo de cambio', 'Control de pólizas y aranceles', 'Integración con proveedores externos'] },
 ]
 
 const Industries = () => {
@@ -22,9 +22,9 @@ const Industries = () => {
     <section id="industrias" className="ind section section--alt">
       <div className="container">
         <SectionHead
-          eyebrow="Industrias"
-          title="Implementaciones especializadas por sector."
-          sub="Cada sector tiene su propio flujo, su propio cumplimiento y sus propios cuellos de botella. CIADÉ adapta FENIX a la realidad de cada uno."
+          eyebrow="Verticales"
+          title="FENIX adaptado a los sectores más exigentes del Ecuador."
+          sub="Gasolineras, florícolas, transporte, logística e importaciones tienen flujos y cumplimientos propios. CIADÉ lleva implementaciones especializadas en cada uno."
         />
         <div className="ind__layout">
           <div className="ind__list">

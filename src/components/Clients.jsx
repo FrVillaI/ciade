@@ -1,8 +1,7 @@
 import SectionHead from './SectionHead.jsx'
 
 const logos = [
-  'GRUPO ANDINA', 'TECNIMAX', 'COMERCIAL EL PACÍFICO', 'NUTRISALUD', 'DISTRIBUIDORA MZ',
-  'INDUSTRIAS DEL NORTE', 'CONSORCIO QUITO', 'HACIENDA SAN JOSÉ', 'FARMA-CENTRO', 'TECNICOM',
+  'CLÍNICA LATACUNGA', 'FUNDEL', 'LA PRADERA', 'ECUDENTAL',
 ]
 
 const Clients = () => (
@@ -19,7 +18,7 @@ const Clients = () => (
         ))}
       </div>
       <div className="cli__sectors">
-        {['Industria', 'Comercio', 'Salud', 'Servicios', 'Agroindustria', 'Distribución'].map((s, i) => (
+        {['Salud', 'Floricultura', 'Comercio', 'Logística', 'Gasolineras'].map((s, i) => (
           <span key={i} className="cli__sector">{s}</span>
         ))}
       </div>

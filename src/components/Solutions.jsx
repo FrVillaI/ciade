@@ -4,28 +4,28 @@ import SectionHead from './SectionHead.jsx'
 
 const sols = [
   {
-    tag: 'ON-PREMISE',
-    title: 'FENIX ERP Local',
-    sub: 'Para empresas que necesitan control total e infraestructura propia.',
-    desc: 'Sistema instalado en servidores del cliente. Máxima estabilidad operativa y autonomía. Ideal para operaciones críticas donde la disponibilidad y la soberanía del dato son prioridad.',
+    tag: 'COMERCIAL CONTABLE',
+    title: 'FENIX Comercial Contable',
+    sub: 'ERP completo para empresas que necesitan control total de su operación administrativa.',
+    desc: 'Solución instalada en servidores del cliente que integra facturación electrónica, inventarios, contabilidad, nómina y punto de venta. Máxima estabilidad y soberanía del dato para operaciones críticas.',
     icon: 'server',
-    points: ['Instalación en servidor propio', 'Datos bajo control interno', 'Despliegue offline disponible', 'Multi-usuario concurrente'],
+    points: ['Facturación electrónica SRI integrada', 'Control multi-bodega y kardex', 'Contabilidad y cierres asistidos', 'Nómina y beneficios sociales'],
   },
   {
-    tag: 'WEB',
-    title: 'FENIX Web',
-    sub: 'Para empresas que necesitan flexibilidad sin atarse a infraestructura local.',
-    desc: 'Acceso desde cualquier lugar mediante navegador. Centraliza la operación entre sucursales, contadores externos y gerencia móvil con la misma estabilidad de la versión local.',
-    icon: 'globe',
-    points: ['Acceso multi-sucursal', 'Sin instalaciones por equipo', 'Backups gestionados', 'Acceso por roles'],
+    tag: 'CONTADOR',
+    title: 'FENIX Contador',
+    sub: 'Para firmas contables y profesionales que gestionan múltiples empresas.',
+    desc: 'Panel centralizado para administrar varios clientes desde un solo acceso. Automatiza procesos contables, declaraciones tributarias y cierres mensuales con cumplimiento normativo permanente.',
+    icon: 'calculator',
+    points: ['Multi-empresa desde un solo panel', 'Procesos contables automatizados', 'Cierres mensuales asistidos', 'Cumplimiento tributario SRI al día'],
   },
   {
-    tag: 'CLOUD',
-    title: 'FENIX Cloud',
-    sub: 'Infraestructura ERP en la nube para operaciones distribuidas y escalables.',
-    desc: 'Para empresas con múltiples usuarios, alta concurrencia y crecimiento proyectado. Escala sin reinversión en infraestructura, con cobertura de seguridad y monitoreo continuo.',
-    icon: 'cloud',
-    points: ['Escalable bajo demanda', 'Alta disponibilidad', 'Monitoreo 24/7', 'Pago por uso predecible'],
+    tag: 'MOVILIDAD & POS',
+    title: 'FENIX Zeus Mobile · Maki POS',
+    sub: 'Movilidad y punto de venta para operaciones en campo y mostrador.',
+    desc: 'FENIX Zeus Mobile lleva el ERP al dispositivo del vendedor en campo. Maki POS integra punto de venta físico con inventario y facturación en tiempo real, con modo offline opcional.',
+    icon: 'cart',
+    points: ['Venta y facturación desde móvil', 'POS sincronizado con inventario', 'Modo offline disponible', 'MAKI Delivery y Catálogo Virtual'],
   },
 ]
 
@@ -36,8 +36,8 @@ const Solutions = () => {
       <div className="container">
         <SectionHead
           eyebrow="Soluciones"
-          title="Tres modalidades. Una sola solución empresarial."
-          sub="Elija el modelo de despliegue según su realidad operativa, infraestructura y proyección. CIADÉ acompaña la decisión técnica con criterio consultivo."
+          title="El ecosistema FENIX completo, implementado por CIADÉ."
+          sub="Desde el ERP de escritorio hasta movilidad y punto de venta. Cada producto FENIX integrado, configurado y soportado por nuestro equipo técnico-funcional."
         />
         <div className="sol__grid">
           {sols.map((s, i) => (

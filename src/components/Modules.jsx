@@ -2,12 +2,12 @@ import Icon from './Icon.jsx'
 import SectionHead from './SectionHead.jsx'
 
 const mods = [
-  { i: 'invoice', t: 'Facturación electrónica', d: 'Emisión y autorización SRI integradas, sin pasos manuales ni dobles digitaciones.' },
-  { i: 'box', t: 'Inventarios', d: 'Control multi-bodega, kardex en tiempo real y trazabilidad por lote o serie.' },
-  { i: 'book', t: 'Contabilidad', d: 'Plan de cuentas configurable, conciliación bancaria y cierres asistidos.' },
-  { i: 'users', t: 'Nómina', d: 'Roles, beneficios sociales, IESS y cumplimiento normativo ecuatoriano.' },
-  { i: 'cart', t: 'Punto de venta', d: 'POS sincronizado con inventario y facturación, modo offline opcional.' },
-  { i: 'chart', t: 'Reportes BI', d: 'Tableros ejecutivos, KPIs operativos y reportes financieros configurables.' },
+  { i: 'users', t: 'CRM', d: 'Gestión de clientes, prospectos y oportunidades comerciales integrada con facturación y cobranzas.' },
+  { i: 'book', t: 'Financiero', d: 'Contabilidad, conciliación bancaria, cierres y reportes financieros bajo normativa ecuatoriana.' },
+  { i: 'workflow', t: 'Proyectos', d: 'Planificación, control de avance y costeo de proyectos vinculados al módulo contable y de RRHH.' },
+  { i: 'truck', t: 'Logística', d: 'Control de bodegas, despachos, guías de remisión y trazabilidad de carga en tiempo real.' },
+  { i: 'cart', t: 'E-Commerce', d: 'Tienda virtual, catálogo digital y pedidos online integrados con inventario y facturación electrónica.' },
+  { i: 'activity', t: 'Recursos Humanos', d: 'Nómina, roles de pago, beneficios sociales, IESS y gestión de contratos en cumplimiento legal.' },
 ]
 
 const Modules = () => (
