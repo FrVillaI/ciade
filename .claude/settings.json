@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:app.highlead.us)"
+      "WebFetch(domain:app.highlead.us)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\Isaac\\\\Documents\\\\Proyectos\\\\ciade\\\\docs\" -Recurse | ForEach-Object { $_.FullName })",
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\Isaac\\\\Documents\\\\Proyectos\\\\ciade\\\\docs\\\\fenix-dashboard.png\" \"c:\\\\Users\\\\Isaac\\\\Documents\\\\Proyectos\\\\ciade\\\\public\\\\fenix-dashboard.png\")"
     ]
   }
 }
