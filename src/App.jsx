@@ -1,18 +1,17 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import Trust from './components/Trust.jsx'
-import ProblemSolution from './components/ProblemSolution.jsx'
-import Solutions from './components/Solutions.jsx'
-import Modules from './components/Modules.jsx'
-import Differentiators from './components/Differentiators.jsx'
-import Industries from './components/Industries.jsx'
-import Plans from './components/Plans.jsx'
-import Clients from './components/Clients.jsx'
-import Support from './components/Support.jsx'
-import FinalCTA from './components/FinalCTA.jsx'
 import Footer from './components/Footer.jsx'
 import ContactModal from './components/ContactModal.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
+
+import HomePage from './pages/HomePage.jsx'
+import PlanesPage from './pages/PlanesPage.jsx'
+import SoportePage from './pages/SoportePage.jsx'
+import NosotrosPage from './pages/NosotrosPage.jsx'
+import ContactoPage from './pages/ContactoPage.jsx'
+import SolucionPage from './pages/SolucionPage.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
 
 const App = () => {
   const [modal, setModal] = useState({ open: false, interest: 'Demo gratuita' })
@@ -21,19 +20,18 @@ const App = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Header openModal={openModal} />
       <main>
-        <Hero openModal={openModal} />
-        <Trust />
-        <ProblemSolution />
-        <Solutions />
-        <Modules />
-        <Differentiators />
-        <Industries />
-        <Plans openModal={openModal} />
-        <Clients />
-        <Support />
-        <FinalCTA openModal={openModal} />
+        <Routes>
+          <Route path="/" element={<HomePage openModal={openModal} />} />
+          <Route path="/planes" element={<PlanesPage openModal={openModal} />} />
+          <Route path="/soporte" element={<SoportePage openModal={openModal} />} />
+          <Route path="/nosotros" element={<NosotrosPage openModal={openModal} />} />
+          <Route path="/contacto" element={<ContactoPage openModal={openModal} />} />
+          <Route path="/soluciones/:tipo" element={<SolucionPage openModal={openModal} />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
       <Footer />
       <ContactModal isOpen={modal.open} onClose={closeModal} initialInterest={modal.interest} />

@@ -1,4 +1,36 @@
+import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
+
+const cols = [
+  ['Soluciones', [
+    ['FENIX ERP Local', '/soluciones/local'],
+    ['FENIX Web', '/soluciones/web'],
+    ['FENIX Cloud', '/soluciones/cloud'],
+    ['Integraciones', null],
+    ['Comparativa', null],
+  ]],
+  ['Servicios', [
+    ['Consultoría', null],
+    ['Implementación', null],
+    ['Personalización', null],
+    ['Capacitación', null],
+    ['Soporte técnico', '/soporte'],
+  ]],
+  ['Industrias', [
+    ['Empresas medianas', null],
+    ['Contadores', null],
+    ['Clínicas', null],
+    ['Retail', null],
+    ['Importadoras', null],
+  ]],
+  ['Compañía', [
+    ['Nosotros', '/nosotros'],
+    ['Clientes', null],
+    ['Casos de éxito', null],
+    ['Contacto', '/contacto'],
+    ['Trabaje con nosotros', null],
+  ]],
+]
 
 const Footer = () => (
   <footer className="ft">
@@ -20,15 +52,16 @@ const Footer = () => (
       </div>
 
       <div className="ft__cols">
-        {[
-          ['Soluciones', ['FENIX ERP Local', 'FENIX Web', 'FENIX Cloud', 'Integraciones', 'Comparativa']],
-          ['Servicios', ['Consultoría', 'Implementación', 'Personalización', 'Capacitación', 'Soporte técnico']],
-          ['Industrias', ['Empresas medianas', 'Contadores', 'Clínicas', 'Retail', 'Importadoras']],
-          ['Compañía', ['Nosotros', 'Clientes', 'Casos de éxito', 'Contacto', 'Trabaje con nosotros']],
-        ].map(([h, items], i) => (
+        {cols.map(([h, items], i) => (
           <div key={i} className="ft__col">
             <div className="ft__h">{h}</div>
-            <ul>{items.map((it, j) => (<li key={j}><a href="#">{it}</a></li>))}</ul>
+            <ul>
+              {items.map(([label, to], j) => (
+                <li key={j}>
+                  {to ? <Link to={to}>{label}</Link> : <span style={{ color: '#93A1B5', fontSize: '13.5px' }}>{label}</span>}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

@@ -1,29 +1,30 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Icon from './Icon.jsx'
 
 const nav = [
   { id: 'soluciones', label: 'Soluciones', items: [
-    { t: 'FENIX ERP Local', d: 'Instalación on-premise' },
-    { t: 'FENIX Web', d: 'Acceso desde cualquier lugar' },
-    { t: 'FENIX Cloud', d: 'Infraestructura escalable' },
+    { t: 'FENIX ERP Local', d: 'Instalación on-premise', to: '/soluciones/local' },
+    { t: 'FENIX Web', d: 'Acceso desde cualquier lugar', to: '/soluciones/web' },
+    { t: 'FENIX Cloud', d: 'Infraestructura escalable', to: '/soluciones/cloud' },
   ]},
   { id: 'industrias', label: 'Industrias', items: [
-    { t: 'Empresas medianas', d: 'Operación multi-área' },
-    { t: 'Contadores', d: 'Multi-empresa' },
-    { t: 'Clínicas y salud', d: 'Cumplimiento sectorial' },
-    { t: 'Retail y comercio', d: 'Punto de venta integrado' },
-    { t: 'Importadoras', d: 'Costeo de importación' },
+    { t: 'Empresas medianas', d: 'Operación multi-área', to: null },
+    { t: 'Contadores', d: 'Multi-empresa', to: null },
+    { t: 'Clínicas y salud', d: 'Cumplimiento sectorial', to: null },
+    { t: 'Retail y comercio', d: 'Punto de venta integrado', to: null },
+    { t: 'Importadoras', d: 'Costeo de importación', to: null },
   ]},
   { id: 'servicios', label: 'Servicios', items: [
-    { t: 'Consultoría', d: 'Diagnóstico operativo' },
-    { t: 'Implementación', d: 'Despliegue y migración' },
-    { t: 'Personalización', d: 'Adaptación al flujo' },
-    { t: 'Capacitación', d: 'Equipos productivos' },
-    { t: 'Soporte', d: 'Atención especializada' },
+    { t: 'Consultoría', d: 'Diagnóstico operativo', to: null },
+    { t: 'Implementación', d: 'Despliegue y migración', to: null },
+    { t: 'Personalización', d: 'Adaptación al flujo', to: null },
+    { t: 'Capacitación', d: 'Equipos productivos', to: null },
+    { t: 'Soporte', d: 'Atención especializada', to: '/soporte' },
   ]},
-  { id: 'planes', label: 'Planes' },
-  { id: 'soporte', label: 'Soporte' },
-  { id: 'nosotros', label: 'Nosotros' },
+  { id: 'planes', label: 'Planes', to: '/planes' },
+  { id: 'soporte', label: 'Soporte', to: '/soporte' },
+  { id: 'nosotros', label: 'Nosotros', to: '/nosotros' },
 ]
 
 const megaDescs = {
@@ -52,29 +53,29 @@ const Header = ({ openModal }) => {
   }, [menuOpen])
 
   const closeMenu = () => setMenuOpen(false)
+  const closeMega = () => setMegaOpen(null)
   const activeNav = nav.find(n => n.id === megaOpen)
 
   return (
-    <header className={`hdr ${scrolled ? 'hdr--scrolled' : ''}`} onMouseLeave={() => setMegaOpen(null)}>
+    <header className={`hdr ${scrolled ? 'hdr--scrolled' : ''}`} onMouseLeave={closeMega}>
       <div className="hdr__bar">
-        <a href="#inicio" className="hdr__brand" onClick={closeMenu}>
+        <Link to="/" className="hdr__brand" onClick={closeMenu}>
           <img src="/ciade-logo.png" alt="CIADE" className="hdr__logo" />
           <div className="hdr__brandtxt">
             <span className="hdr__name">CIADE</span>
             <span className="hdr__sub">Consulting S.A.</span>
           </div>
-        </a>
+        </Link>
 
         <nav className="hdr__nav">
           {nav.map(n => (
             <div key={n.id} className="hdr__navitem" onMouseEnter={() => n.items && setMegaOpen(n.id)}>
               {n.items ? (
                 <button className={`hdr__navbtn ${megaOpen === n.id ? 'is-open' : ''}`}>
-                  {n.label}
-                  <Icon name="chevron" size={14} />
+                  {n.label} <Icon name="chevron" size={14} />
                 </button>
               ) : (
-                <a href={`#${n.id}`} className="hdr__navbtn">{n.label}</a>
+                <Link to={n.to} className="hdr__navbtn" onClick={closeMega}>{n.label}</Link>
               )}
             </div>
           ))}
@@ -101,19 +102,24 @@ const Header = ({ openModal }) => {
 
       {/* Mega-menú — solo desktop */}
       {megaOpen && activeNav?.items && (
-        <div className="mega" onMouseLeave={() => setMegaOpen(null)}>
+        <div className="mega" onMouseLeave={closeMega}>
           <div className="mega__inner">
             <div className="mega__col mega__col--label">
               <div className="mega__eyebrow">{activeNav.label}</div>
               <p className="mega__desc">{megaDescs[megaOpen]}</p>
             </div>
             <div className="mega__grid">
-              {activeNav.items.map((it, i) => (
-                <a key={i} className="mega__item" href="#">
+              {activeNav.items.map((it, i) => it.to ? (
+                <Link key={i} className="mega__item" to={it.to} onClick={closeMega}>
                   <div className="mega__t">{it.t}</div>
                   <div className="mega__d">{it.d}</div>
                   <Icon name="arrow" size={14} className="mega__arr" />
-                </a>
+                </Link>
+              ) : (
+                <span key={i} className="mega__item mega__item--disabled">
+                  <div className="mega__t">{it.t}</div>
+                  <div className="mega__d">{it.d}</div>
+                </span>
               ))}
             </div>
           </div>
@@ -128,13 +134,13 @@ const Header = ({ openModal }) => {
       {/* Drawer mobile */}
       <div className={`hdr__drawer ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
         <div className="hdr__drawer-head">
-          <a href="#inicio" className="hdr__brand" onClick={closeMenu}>
+          <Link to="/" className="hdr__brand" onClick={closeMenu}>
             <img src="/ciade-logo.png" alt="CIADE" className="hdr__logo" />
             <div className="hdr__brandtxt">
               <span className="hdr__name">CIADE</span>
               <span className="hdr__sub">Consulting S.A.</span>
             </div>
-          </a>
+          </Link>
           <button className="hdr__drawer-close" onClick={closeMenu} aria-label="Cerrar menú">
             <Icon name="close" size={18} />
           </button>
@@ -149,23 +155,20 @@ const Header = ({ openModal }) => {
                     className={`hdr__drawer-btn ${mobileExpanded === n.id ? 'is-open' : ''}`}
                     onClick={() => setMobileExpanded(mobileExpanded === n.id ? null : n.id)}
                   >
-                    {n.label}
-                    <Icon name="chevron" size={14} />
+                    {n.label} <Icon name="chevron" size={14} />
                   </button>
                   {mobileExpanded === n.id && (
                     <div className="hdr__drawer-sub">
-                      {n.items.map((it, i) => (
-                        <a key={i} href="#" className="hdr__drawer-sublink" onClick={closeMenu}>
-                          {it.t}
-                        </a>
+                      {n.items.map((it, i) => it.to ? (
+                        <Link key={i} to={it.to} className="hdr__drawer-sublink" onClick={closeMenu}>{it.t}</Link>
+                      ) : (
+                        <span key={i} className="hdr__drawer-sublink hdr__drawer-sublink--dim">{it.t}</span>
                       ))}
                     </div>
                   )}
                 </>
               ) : (
-                <a href={`#${n.id}`} className="hdr__drawer-btn" onClick={closeMenu}>
-                  {n.label}
-                </a>
+                <Link to={n.to} className="hdr__drawer-btn" onClick={closeMenu}>{n.label}</Link>
               )}
             </div>
           ))}
